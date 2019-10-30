@@ -9,6 +9,7 @@
 </head>
 <body>
 처음 만드는 웹 게시판
-<a href="/WEB-INF/views/user/login.jsp">로그인</a>
+<a href="/views/user/login">로그인</a>
+<a href="/views/user/signup">회원가입</a>
 </body>
 </html>
