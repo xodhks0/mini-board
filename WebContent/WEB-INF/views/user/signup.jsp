@@ -29,7 +29,7 @@
 			</tr>
 			<tr>
 				<th colspan="2">
-					<button >회원가입</button>
+					<button>회원가입</button>
 				</th>
 			</tr>
 		</table>

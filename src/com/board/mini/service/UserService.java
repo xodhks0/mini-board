@@ -17,13 +17,13 @@ public class UserService {
 	public Map<String, Object> doLogin(String id, String pwd) {
 		Connection con = DBCon.getCon();
 		DBExecutor dbe = new DBExecutor();
-		String sql = "select * from user_info where id = ? and pwd = ?";
+		String sql = "select * from user_info where ui_id = ? and ui_pwd = ?";
 		try {
 			PreparedStatement ps = dbe.prepared(con, sql);
 			ps.setString(1, id);
 			ps.setString(2, pwd);
-			ResultSet rs = ps.executeQuery();
-			if (rs.next()) {
+			ResultSet rs = dbe.executeQuery();
+			if (rs.next()) { //로그인 됐을시 실행
 				Map<String, Object> user = new HashMap<>();
 				user.put("uiNum", rs.getInt("ui_Num"));
 				user.put("uiName", rs.getString("ui_Name"));
@@ -36,7 +36,7 @@ public class UserService {
 			dbe.closeAll();
 			DBCon.closeCon();
 		}
-		return null;
+		return null; //로그인 안됐을시 실행
 	}
 
 	public Map<String, Object> doSignup(String uiName, String uiId, String uiPwd) {
